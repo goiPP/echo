@@ -1,0 +1,17 @@
+name: 'Evho'
+description: 'To echo anything'
+
+inputs:
+  gh_token:
+    description: 'Github Token'
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: 'Executes the bash script'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.gh_token }}
+      run: |
+        $GITHUB_ACTION_PATH/run.sh
